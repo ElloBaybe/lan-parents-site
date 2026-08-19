@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LAN Parents — Where Pixel Parents Connect</title>
+<meta name="description" content="LAN Parents connects parents who game. Host LAN parties, plan events, trade gear, and find players near you.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lanparents.com/">
+<meta property="og:title" content="LAN Parents — Where Pixel Parents Connect">
+<meta property="og:description" content="LAN Parents connects parents who game. Host LAN parties, plan events, trade gear, and find players near you.">
+<meta property="og:image" content="https://lanparents.com/lanparents-share-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LAN Parents — Where Pixel Parents Connect">
+<meta name="twitter:description" content="LAN Parents connects parents who game. Host LAN parties, plan events, trade gear, and find players near you.">
+<meta name="twitter:image" content="https://lanparents.com/lanparents-share-1200x630.png">
+
+<meta name="theme-color" content="#0A0A12">
+<link rel="canonical" href="https://lanparents.com/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0A0A12;
+  --surface:#12121F;
+  --card:#1A1A2E;
+  --border:#2A2A3E;
+  --green:#39FF14;
+  --pink:#FF2D95;
+  --blue:#00D4FF;
+  --purple:#B026FF;
+  --yellow:#FFD700;
+  --text:#E8E8F0;
+  --dim:#8888A0;
+  --muted:#44445A;
+  --display:'Press Start 2P',monospace;
+  --body:'Rajdhani',system-ui,sans-serif;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:19px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Signature: a faint CRT scanline field over the whole page, plus the dot-grid
+   carried over from the app icon. Sits behind everything, never intercepts input. */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.022) 0px,
+      rgba(255,255,255,0.022) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    radial-gradient(circle at 1px 1px, rgba(136,136,160,0.10) 1px, transparent 0);
+  background-size:100% 3px, 32px 32px;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background:radial-gradient(ellipse 90% 55% at 50% 0%, rgba(57,255,20,0.055), transparent 70%);
+}
+
+.wrap{
+  position:relative;
+  z-index:1;
+  max-width:840px;
+  margin:0 auto;
+  padding:0 22px;
+}
+
+a{color:var(--blue)}
+a:focus-visible,
+button:focus-visible{
+  outline:2px solid var(--green);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+/* ---------- masthead ---------- */
+
+header{
+  padding:78px 0 54px;
+  text-align:center;
+}
+
+.wordmark{
+  font-family:var(--display);
+  font-size:clamp(22px,5.6vw,40px);
+  line-height:1.35;
+  letter-spacing:0.02em;
+  margin:0;
+}
+.wordmark .lan{
+  color:var(--green);
+  text-shadow:0 0 18px rgba(57,255,20,0.42), 0 0 44px rgba(57,255,20,0.22);
+}
+.wordmark .parents{
+  color:var(--blue);
+  text-shadow:0 0 18px rgba(0,212,255,0.42), 0 0 44px rgba(0,212,255,0.22);
+}
+
+.tagline{
+  font-family:var(--display);
+  font-size:clamp(8px,1.9vw,11px);
+  color:var(--dim);
+  letter-spacing:0.16em;
+  margin:22px 0 0;
+  line-height:2;
+}
+
+.lede{
+  max-width:600px;
+  margin:34px auto 0;
+  font-size:clamp(20px,2.6vw,24px);
+  color:var(--text);
+  font-weight:500;
+}
+
+.status{
+  display:inline-block;
+  margin-top:30px;
+  padding:8px 18px 7px;
+  border:1px solid var(--purple);
+  border-radius:6px;
+  font-family:var(--display);
+  font-size:9px;
+  letter-spacing:0.11em;
+  color:var(--purple);
+  line-height:1.7;
+}
+
+/* ---------- section furniture ---------- */
+
+section{padding:46px 0}
+
+h2{
+  font-family:var(--display);
+  font-size:clamp(11px,2.3vw,14px);
+  letter-spacing:0.11em;
+  color:var(--text);
+  margin:0 0 26px;
+  line-height:1.8;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+h2::after{
+  content:'';
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
+
+/* ---------- what it does ---------- */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+}
+
+.tile{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:22px 22px 24px;
+}
+.tile h3{
+  font-family:var(--display);
+  font-size:10px;
+  letter-spacing:0.09em;
+  margin:0 0 12px;
+  line-height:1.8;
+}
+.tile p{margin:0;color:var(--dim);font-size:18px;line-height:1.6}
+
+.tile.lan h3{color:var(--green)}
+.tile.events h3{color:var(--blue)}
+.tile.market h3{color:var(--yellow)}
+.tile.chat h3{color:var(--pink)}
+
+/* ---------- support ---------- */
+
+.support{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-left:3px solid var(--green);
+  border-radius:12px;
+  padding:30px 26px;
+}
+.support p{margin:0 0 18px}
+.support p:last-child{margin-bottom:0}
+
+.mail{
+  font-family:var(--display);
+  font-size:clamp(10px,2.4vw,14px);
+  color:var(--green);
+  text-decoration:none;
+  word-break:break-all;
+  line-height:1.9;
+  border-bottom:1px solid rgba(57,255,20,0.35);
+}
+.mail:hover{border-bottom-color:var(--green)}
+
+.reply{color:var(--dim);font-size:17px}
+
+/* ---------- faq ---------- */
+
+.faq{
+  border-top:1px solid var(--border);
+}
+details{
+  border-bottom:1px solid var(--border);
+}
+summary{
+  cursor:pointer;
+  padding:18px 34px 18px 0;
+  font-weight:600;
+  font-size:20px;
+  list-style:none;
+  position:relative;
+  color:var(--text);
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:'+';
+  position:absolute;
+  right:6px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--green);
+  font-family:var(--display);
+  font-size:14px;
+  transition:transform .18s ease;
+}
+details[open] summary::after{content:'\2212'}
+summary:hover{color:var(--green)}
+details p{
+  margin:0 0 20px;
+  color:var(--dim);
+  font-size:18px;
+  padding-right:34px;
+}
+
+/* ---------- footer ---------- */
+
+footer{
+  border-top:1px solid var(--border);
+  margin-top:40px;
+  padding:34px 0 60px;
+  text-align:center;
+  color:var(--muted);
+  font-size:16px;
+}
+footer nav{margin-bottom:16px}
+footer a{
+  color:var(--dim);
+  text-decoration:none;
+  margin:0 12px;
+  border-bottom:1px solid transparent;
+}
+footer a:hover{color:var(--green);border-bottom-color:var(--green)}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header>
+  <h1 class="wordmark"><span class="lan">LAN</span> <span class="parents">PARENTS</span></h1>
+  <p class="tagline">Where Pixel Parents Connect</p>
+  <p class="lede">Parenting doesn't mean giving up the controller. LAN Parents helps parents who game find each other, host LAN parties, and keep playing.</p>
+  <p class="status">In TestFlight beta</p>
+</header>
+
+<section>
+  <h2>What you can do</h2>
+  <div class="grid">
+    <div class="tile lan">
+      <h3>LAN parties</h3>
+      <p>Start a party or join one nearby. Hosts approve who comes, so you know who's in the room before anyone shows up.</p>
+    </div>
+    <div class="tile events">
+      <h3>Events</h3>
+      <p>Plan game nights and tournaments, RSVP, and see who else is going.</p>
+    </div>
+    <div class="tile market">
+      <h3>Marketplace</h3>
+      <p>Buy, sell, and trade games and gear with other parents. Every listing is reviewed by a person before it goes live.</p>
+    </div>
+    <div class="tile chat">
+      <h3>Chat</h3>
+      <p>Message the players you've connected with, one to one or in a group.</p>
+    </div>
+  </div>
+</section>
+
+<section id="support">
+  <h2>Support</h2>
+  <div class="support">
+    <p>Something broken, a question about your account, or a player you need to report? Email us:</p>
+    <p><a class="mail" href="mailto:lanparents+support@outlook.com">lanparents+support@outlook.com</a></p>
+    <p class="reply">We read every message and aim to reply within two business days. If you're reporting a player or a listing, please include their username and what happened.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Common questions</h2>
+  <div class="faq">
+
+    <details>
+      <summary>How do I delete my account?</summary>
+      <p>Open the app, go to Profile, then Settings, and choose Delete Account. This removes your profile, posts, listings, messages, and photos. Deletion is permanent and can't be undone. If you can't get into the app, email us from the address on your account and we'll handle it.</p>
+    </details>
+
+    <details>
+      <summary>How do I report or block someone?</summary>
+      <p>Every profile, post, listing, and comment has a Report option, and profiles also have Block. Blocking hides you from that player and them from you, and removes any friendship between you. Reports go to a moderator, not to the person you reported.</p>
+    </details>
+
+    <details>
+      <summary>Is the marketplace safe?</summary>
+      <p>Every listing is reviewed by a person before other players can see it. We don't process payments or shipping — buyers and sellers arrange that themselves, so treat it like any local sale: meet somewhere public, inspect before you pay, and report anything that looks wrong.</p>
+    </details>
+
+    <details>
+      <summary>Who can message me?</summary>
+      <p>Only players you're connected to — friends, people in your LAN parties, and people going to the same events. Anyone else has to send a request you can accept or decline first.</p>
+    </details>
+
+    <details>
+      <summary>Is LAN Parents for kids?</summary>
+      <p>No. LAN Parents is built for parents, and accounts are for adults. Kids are who we're all playing with at home, not who's on the app.</p>
+    </details>
+
+    <details>
+      <summary>When is it launching?</summary>
+      <p>We're in TestFlight beta now, with an App Store release coming. Email us if you'd like to be told when it's out.</p>
+    </details>
+
+  </div>
+</section>
+
+<footer>
+  <nav>
+    <a href="https://privacy.lanparents.com">Privacy</a>
+    <a href="https://terms.lanparents.com">Terms</a>
+    <a href="#support">Support</a>
+  </nav>
+  <p>&copy; 2026 LAN Parents</p>
+</footer>
+
+</div>
+
+</body>
+</html>
