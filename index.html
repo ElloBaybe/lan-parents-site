@@ -110,6 +110,15 @@ header{
   text-align:center;
 }
 
+/* The icon's background is flat #0A0A12 -- identical to the page -- so it needs
+   no blend mode or transparency to sit seamlessly on the dark field. */
+.logo{
+  display:block;
+  width:clamp(72px,14vw,104px);
+  height:auto;
+  margin:0 auto 26px;
+}
+
 .wordmark{
   font-family:var(--display);
   font-size:clamp(22px,5.6vw,40px);
@@ -299,10 +308,10 @@ footer a:hover{color:var(--green);border-bottom-color:var(--green)}
 <div class="wrap">
 
 <header>
+  <img class="logo" src="lanparents-logo.png" width="1024" height="1024" alt="">
   <h1 class="wordmark"><span class="lan">LAN</span> <span class="parents">PARENTS</span></h1>
   <p class="tagline">Where Pixel Parents Connect</p>
   <p class="lede">Parenting doesn't mean giving up the controller. LAN Parents helps parents who game find each other, host LAN parties, and keep playing.</p>
-  <p class="status">In TestFlight beta</p>
 </header>
 
 <section>
@@ -314,7 +323,7 @@ footer a:hover{color:var(--green);border-bottom-color:var(--green)}
     </div>
     <div class="tile events">
       <h3>Events</h3>
-      <p>Plan game nights and tournaments, RSVP, and see who else is going.</p>
+      <p>Plan game nights, RSVP, and see who else is going. Tournament events build a bracket from the signups and track it round by round.</p>
     </div>
     <div class="tile market">
       <h3>Marketplace</h3>
@@ -341,6 +350,11 @@ footer a:hover{color:var(--green);border-bottom-color:var(--green)}
   <div class="faq">
 
     <details>
+      <summary>When is it launching?</summary>
+      <p>We're in final testing now. The App Store link will appear on this page as soon as it's live — email us if you'd like a note when that happens.</p>
+    </details>
+
+    <details>
       <summary>How do I delete my account?</summary>
       <p>Open the app, go to Profile, then Settings, and choose Delete Account. This removes your profile, posts, listings, messages, and photos. Deletion is permanent and can't be undone. If you can't get into the app, email us from the address on your account and we'll handle it.</p>
     </details>
@@ -363,11 +377,6 @@ footer a:hover{color:var(--green);border-bottom-color:var(--green)}
     <details>
       <summary>Is LAN Parents for kids?</summary>
       <p>No. LAN Parents is built for parents, and accounts are for adults. Kids are who we're all playing with at home, not who's on the app.</p>
-    </details>
-
-    <details>
-      <summary>When is it launching?</summary>
-      <p>We're in TestFlight beta now, with an App Store release coming. Email us if you'd like to be told when it's out.</p>
     </details>
 
   </div>
