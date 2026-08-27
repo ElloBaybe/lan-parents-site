@@ -4,7 +4,12 @@
     "details": [
       {
         "appID": "WZ785UGPTR.com.ellobaybe.lanparents",
-        "paths": [ "/e/*", "/p/*", "/post/*" ]
+        "paths": [
+          "/e/*",
+          "/p/*",
+          "/post/*",
+          "/i/*"
+        ]
       }
     ]
   }
