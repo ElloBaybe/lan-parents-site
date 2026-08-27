@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "WZ785UGPTR.com.ellobaybe.lanparents",
+        "paths": [ "/e/*", "/p/*", "/post/*" ]
+      }
+    ]
+  }
+}
