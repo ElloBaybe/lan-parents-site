@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shared from LAN Parents</title>
+<meta name="description" content="LAN Parents connects parents who game. Get the app to see what was shared with you.">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LAN Parents">
+<meta property="og:title" content="Shared from LAN Parents">
+<meta property="og:description" content="Parents who game, connecting over LAN parties, events, and trades. Get the app to see what was shared.">
+<meta property="og:image" content="https://lanparents.com/lanparents-share-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shared from LAN Parents">
+<meta name="twitter:description" content="Parents who game, connecting over LAN parties, events, and trades. Get the app to see what was shared.">
+<meta name="twitter:image" content="https://lanparents.com/lanparents-share-1200x630.png">
+
+<meta name="theme-color" content="#0A0A12">
+<link rel="icon" href="https://lanparents.com/lanparents-logo.png">
+<link rel="apple-touch-icon" href="https://lanparents.com/lanparents-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{--bg:#0A0A12;--card:#1A1A2E;--border:#2A2A3E;--green:#39FF14;--blue:#00D4FF;--text:#E8E8F0;--dim:#8888A0;
+  --display:'Press Start 2P',monospace;--body:'Rajdhani',system-ui,sans-serif;}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:var(--bg);color:var(--text);font-family:var(--body);font-size:18px;padding:24px}
+.card{max-width:440px;width:100%;background:var(--card);border:1px solid var(--border);
+  border-radius:20px;padding:36px 28px;text-align:center}
+.logo{width:96px;height:96px;border-radius:22px;margin-bottom:18px}
+h1{font-family:var(--display);font-size:18px;line-height:1.6;margin:0 0 18px;color:var(--green)}
+h1 span{color:var(--blue)}
+p{margin:0 0 14px;line-height:1.45}
+.kind{font-weight:600;font-size:20px}
+.dim{color:var(--dim);font-size:16px}
+.btn{display:inline-block;margin-top:10px;padding:14px 22px;border-radius:14px;
+  background:var(--green);color:#0A0A12;font-family:var(--display);font-size:12px;text-decoration:none}
+</style>
+</head>
+<body>
+<main class="card">
+  <img class="logo" src="https://lanparents.com/lanparents-logo.png" alt="LAN Parents logo">
+  <h1>LAN <span>PARENTS</span></h1>
+  <p class="kind" id="kind">Someone shared something with you from LAN Parents.</p>
+  <p>LAN Parents is where parents who game find each other: LAN parties, events, tournaments, and a marketplace for games and gear.</p>
+  <p class="dim">Already have the app? Tap the link from Messages or Mail on your iPhone and it opens in LAN Parents.</p>
+  <a class="btn" href="https://lanparents.com/">VISIT LAN PARENTS</a>
+</main>
+<script>
+(function () {
+  var p = location.pathname, k = null;
+  if (p.indexOf('/post/') === 0) k = 'a post';
+  else if (p.indexOf('/e/') === 0) k = 'an event';
+  else if (p.indexOf('/p/') === 0) k = 'a LAN party';
+  else if (p.indexOf('/i/') === 0) k = 'an event invite';
+  var el = document.getElementById('kind');
+  el.textContent = k ? 'Someone shared ' + k + ' with you from LAN Parents.' : 'This page could not be found.';
+})();
+</script>
+</body>
+</html>
