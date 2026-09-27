@@ -301,6 +301,22 @@ footer a:hover{color:var(--green);border-bottom-color:var(--green)}
   html{scroll-behavior:auto}
   *{transition:none!important}
 }
+
+/* Waitlist form */
+.waitlist{margin:28px auto 0;max-width:520px;text-align:center}
+.wl-label{display:block;font-family:var(--display);font-size:11px;letter-spacing:.06em;line-height:1.8;color:var(--green);margin-bottom:14px}
+.wl-row{display:flex;gap:10px;flex-wrap:wrap}
+.wl-row input{flex:1 1 240px;min-width:0;padding:14px 16px;font-family:var(--body);font-size:18px;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:10px}
+.wl-row input::placeholder{color:var(--muted)}
+.wl-row input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(57,255,20,.18)}
+.wl-row button{flex:0 0 auto;padding:14px 18px;font-family:var(--display);font-size:10px;letter-spacing:.06em;color:var(--bg);background:var(--green);border:0;border-radius:10px;cursor:pointer;box-shadow:0 0 18px rgba(57,255,20,.35)}
+.wl-row button:disabled{opacity:.6;cursor:wait}
+.wl-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.wl-msg{min-height:1.6em;margin:12px 0 0;font-size:17px}
+.wl-msg.ok{color:var(--green)}
+.wl-msg.err{color:var(--pink)}
+.wl-note{margin:2px 0 0;font-size:15px;color:var(--dim)}
+@media (max-width:480px){.wl-row button{flex:1 1 100%}}
 </style>
 <link rel="icon" href="https://lanparents.com/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="https://lanparents.com/favicon-32.png">
@@ -316,6 +332,16 @@ footer a:hover{color:var(--green);border-bottom-color:var(--green)}
   <p class="tagline">Where Pixel Parents Connect</p>
   <p class="lede">Parenting doesn't mean giving up the controller. LAN Parents helps parents who game find each other, host LAN parties, and keep playing.</p>
   <p class="status">Coming to the App Store</p>
+  <form class="waitlist" id="waitlist" novalidate>
+    <label for="wl-email" class="wl-label">Get a heads-up when we launch</label>
+    <div class="wl-row">
+      <input id="wl-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" maxlength="254" required>
+      <button type="submit">JOIN THE WAITLIST</button>
+    </div>
+    <div class="wl-hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+    <p class="wl-msg" id="wl-msg" role="status" aria-live="polite"></p>
+    <p class="wl-note">Launch news only. No spam.</p>
+  </form>
 </header>
 
 <section>
@@ -397,5 +423,37 @@ footer a:hover{color:var(--green);border-bottom-color:var(--green)}
 
 </div>
 
+<script>
+(function () {
+  var SUPABASE_URL = 'https://qkpmjpgeivyoeckhbbsq.supabase.co';
+  var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFrcG1qcGdlaXZ5b2Vja2hiYnNxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzOTY0MDcsImV4cCI6MjA5MTk3MjQwN30.cabnBAeMkiRKrypXm0paFVpABPFXxe73qXL3yJZfWDY';
+  var form = document.getElementById('waitlist');
+  if (form === null) return;
+  var input = document.getElementById('wl-email');
+  var msg = document.getElementById('wl-msg');
+  var btn = form.querySelector('button');
+  var valid = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+  function say(text, kind) { msg.textContent = text; msg.className = 'wl-msg ' + (kind || ''); }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var done = "You're on the list. We'll email you when LAN Parents launches.";
+    if (form.elements.website.value) { say(done, 'ok'); form.reset(); return; }
+    var email = input.value.trim().toLowerCase();
+    if (valid.test(email) === false || email.length > 254) { say('Please enter a valid email address.', 'err'); input.focus(); return; }
+    btn.disabled = true;
+    say('Adding you...', '');
+    fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+      method: 'POST',
+      headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+      body: JSON.stringify({ email: email, source: 'website' })
+    }).then(function (res) {
+      if (res.ok || res.status === 409) { say(done, 'ok'); form.reset(); }
+      else { say('Something went wrong. Please try again in a minute.', 'err'); }
+    }).catch(function () {
+      say('Could not connect. Check your connection and try again.', 'err');
+    }).then(function () { btn.disabled = false; });
+  });
+})();
+</script>
 </body>
 </html>
