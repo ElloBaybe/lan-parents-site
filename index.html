@@ -434,6 +434,8 @@ footer a:hover{color:var(--green);border-bottom-color:var(--green)}
   var input = document.getElementById('wl-email');
   var msg = document.getElementById('wl-msg');
   var btn = form.querySelector('button');
+  var src = 'website';
+  try { var q = new URLSearchParams(window.location.search).get('src'); if (q) { q = q.toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 40); if (q) { src = q; } } } catch (err) {}
   var valid = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
   function say(text, kind) { msg.textContent = text; msg.className = 'wl-msg ' + (kind || ''); }
   form.addEventListener('submit', function (e) {
@@ -447,7 +449,7 @@ footer a:hover{color:var(--green);border-bottom-color:var(--green)}
     fetch(SUPABASE_URL + '/rest/v1/waitlist', {
       method: 'POST',
       headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
-      body: JSON.stringify({ email: email, source: 'website' })
+      body: JSON.stringify({ email: email, source: src })
     }).then(function (res) {
       if (res.ok || res.status === 409) { say(done, 'ok'); form.reset(); }
       else { say('Something went wrong. Please try again in a minute.', 'err'); }
