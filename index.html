@@ -4,23 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LAN Parents — Where Pixel Parents Connect</title>
-<meta name="description" content="LAN Parents connects parents who game. Host LAN parties, plan events, trade gear, and find players near you.">
+<meta name="description" content="LAN Parents connects parents who game. Host LAN parties, plan events, trade gear, and find players near you. Free on iPhone. Launching November 12, 2026 on the App Store.">
+<meta name="apple-itunes-app" content="app-id=6764749069">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lanparents.com/">
 <meta property="og:title" content="LAN Parents — Where Pixel Parents Connect">
-<meta property="og:description" content="LAN Parents connects parents who game. Host LAN parties, plan events, trade gear, and find players near you.">
+<meta property="og:description" content="Parents who game, finally in one place. LAN parties, events, tournaments and a gear marketplace. Free on iPhone, launching Nov 12.">
 <meta property="og:image" content="https://lanparents.com/lanparents-share-1200x630.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="LAN Parents — Where Pixel Parents Connect">
-<meta name="twitter:description" content="LAN Parents connects parents who game. Host LAN parties, plan events, trade gear, and find players near you.">
+<meta name="twitter:description" content="Parents who game, finally in one place. LAN parties, events, tournaments and a gear marketplace. Free on iPhone, launching Nov 12.">
 <meta name="twitter:image" content="https://lanparents.com/lanparents-share-1200x630.png">
 
 <meta name="theme-color" content="#0A0A12">
 <link rel="canonical" href="https://lanparents.com/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"MobileApplication","name":"LAN Parents","operatingSystem":"iOS","applicationCategory":"SocialNetworkingApplication","datePublished":"2026-11-12","url":"https://lanparents.com/","downloadUrl":"https://apps.apple.com/app/lan-parents/id6764749069","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"LAN Parents","url":"https://lanparents.com/","sameAs":["https://www.instagram.com/lanparents","https://www.tiktok.com/@lanparents"]}}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -302,6 +306,16 @@ footer a:hover{color:var(--green);border-bottom-color:var(--green)}
   *{transition:none!important}
 }
 
+/* Launch block */
+.launch{margin:30px auto 0;max-width:560px}
+.launch-date{font-family:var(--display);font-size:clamp(10px,2.2vw,13px);letter-spacing:.1em;line-height:1.9;color:var(--pink);text-shadow:0 0 14px rgba(255,45,149,.45);margin:0}
+.countdown{display:flex;justify-content:center;gap:10px;margin:18px 0 22px}
+.countdown div{min-width:68px;padding:12px 6px 10px;background:var(--surface);border:1px solid var(--border);border-radius:10px}
+.countdown b{display:block;font-family:var(--display);font-size:clamp(16px,4vw,22px);color:var(--green);text-shadow:0 0 14px rgba(57,255,20,.4);line-height:1.3}
+.countdown span{display:block;font-size:13px;letter-spacing:.12em;color:var(--dim);text-transform:uppercase;margin-top:4px}
+.store-btn{display:inline-block;padding:16px 24px;font-family:var(--display);font-size:11px;letter-spacing:.06em;line-height:1.6;color:var(--bg);background:var(--blue);border-radius:12px;text-decoration:none;box-shadow:0 0 22px rgba(0,212,255,.4)}
+.store-btn:hover{background:var(--green);box-shadow:0 0 22px rgba(57,255,20,.4)}
+.store-note{margin:14px 0 0;font-size:17px;color:var(--dim)}
 /* Waitlist form */
 .waitlist{margin:28px auto 0;max-width:520px;text-align:center}
 .wl-label{display:block;font-family:var(--display);font-size:11px;letter-spacing:.06em;line-height:1.8;color:var(--green);margin-bottom:14px}
@@ -331,9 +345,14 @@ footer a:hover{color:var(--green);border-bottom-color:var(--green)}
   <h1 class="wordmark"><span class="lan">LAN</span> <span class="parents">PARENTS</span></h1>
   <p class="tagline">Where Pixel Parents Connect</p>
   <p class="lede">Parenting doesn't mean giving up the controller. LAN Parents helps parents who game find each other, host LAN parties, and keep playing.</p>
-  <p class="status">Coming to the App Store</p>
+  <div class="launch" id="launch">
+    <p class="launch-date" id="launch-date">LAUNCHING THURSDAY &middot; NOV 12</p>
+    <div class="countdown" id="countdown" aria-hidden="true"></div>
+    <a class="store-btn" id="store-btn" href="https://apps.apple.com/app/lan-parents/id6764749069">PRE-ORDER ON THE APP STORE</a>
+    <p class="store-note" id="store-note">Free on iPhone. Pre-order now and it downloads automatically on launch day.</p>
+  </div>
   <form class="waitlist" id="waitlist" novalidate>
-    <label for="wl-email" class="wl-label">Get a heads-up when we launch</label>
+    <label for="wl-email" class="wl-label">Or get a launch-day email</label>
     <div class="wl-row">
       <input id="wl-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" maxlength="254" required>
       <button type="submit">JOIN THE WAITLIST</button>
@@ -363,6 +382,14 @@ footer a:hover{color:var(--green);border-bottom-color:var(--green)}
       <h3>Chat</h3>
       <p>Message the players you've connected with, one to one or in a group.</p>
     </div>
+    <div class="tile lan">
+      <h3>Find your crew</h3>
+      <p>Pick the games and consoles you play and find other parents who play them too, including players near you.</p>
+    </div>
+    <div class="tile events">
+      <h3>Gamer tags</h3>
+      <p>Add your PSN, Xbox, Nintendo, Steam, Discord and more. Only your friends can see them, so the right people can find you in-game.</p>
+    </div>
   </div>
 </section>
 
@@ -381,7 +408,12 @@ footer a:hover{color:var(--green);border-bottom-color:var(--green)}
 
     <details>
       <summary>When is it launching?</summary>
-      <p>We're in final testing now. The App Store link will appear on this page as soon as it's live — email us if you'd like a note when that happens.</p>
+      <p>LAN Parents launches on the App Store on Thursday, November 12, 2026. You can pre-order it now: tap Pre-Order on the App Store and it downloads to your iPhone automatically on launch day.</p>
+    </details>
+
+    <details>
+      <summary>How much does it cost, and what do I need?</summary>
+      <p>LAN Parents is free. It's an iPhone app, available on the App Store. It's not on Android yet.</p>
     </details>
 
     <details>
@@ -416,6 +448,7 @@ footer a:hover{color:var(--green);border-bottom-color:var(--green)}
   <nav>
     <a href="https://privacy.lanparents.com">Privacy</a>
     <a href="https://terms.lanparents.com">Terms</a>
+    <a href="https://apps.apple.com/app/lan-parents/id6764749069">App Store</a>
     <a href="#support">Support</a>
     <a href="https://www.instagram.com/lanparents" rel="me">Instagram</a>
     <a href="https://www.tiktok.com/@lanparents" rel="me">TikTok</a>
@@ -426,6 +459,26 @@ footer a:hover{color:var(--green);border-bottom-color:var(--green)}
 </div>
 
 <script>
+(function () {
+  var LAUNCH = new Date(2026, 10, 12, 0, 0, 0); // Nov 12, 2026, midnight local time
+  var cd = document.getElementById('countdown');
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function launched() {
+    document.getElementById('launch-date').textContent = 'OUT NOW ON THE APP STORE';
+    document.getElementById('store-btn').textContent = 'DOWNLOAD ON THE APP STORE';
+    document.getElementById('store-note').textContent = 'Free on iPhone.';
+    cd.style.display = 'none';
+    var wl = document.getElementById('waitlist'); if (wl) wl.style.display = 'none';
+  }
+  function tick() {
+    var ms = LAUNCH - new Date();
+    if (ms <= 0) { launched(); return false; }
+    var d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24, m = Math.floor(ms / 6e4) % 60, s = Math.floor(ms / 1e3) % 60;
+    cd.innerHTML = '<div><b>' + d + '</b><span>days</span></div><div><b>' + pad(h) + '</b><span>hrs</span></div><div><b>' + pad(m) + '</b><span>min</span></div><div><b>' + pad(s) + '</b><span>sec</span></div>';
+    return true;
+  }
+  if (tick()) { var t = setInterval(function () { if (!tick()) clearInterval(t); }, 1000); }
+})();
 (function () {
   var SUPABASE_URL = 'https://qkpmjpgeivyoeckhbbsq.supabase.co';
   var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFrcG1qcGdlaXZ5b2Vja2hiYnNxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzOTY0MDcsImV4cCI6MjA5MTk3MjQwN30.cabnBAeMkiRKrypXm0paFVpABPFXxe73qXL3yJZfWDY';
